@@ -3,7 +3,7 @@ import './Footer.css';
 const Footer = () => {
     return (
         <footer id="site-footer">
-            <p>@Gram</p>
+            <p>@Insta 2021</p>
         </footer>
     )
 }

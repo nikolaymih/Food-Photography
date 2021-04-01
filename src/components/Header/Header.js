@@ -8,8 +8,8 @@ const Header = () => {
             <nav className="navbar">
                 <section className="navbar-left">
                     <div className="left-logged">
-                        <Link to="/">Home</Link>
-                        <Link to="/add-picture">Add picture</Link>
+                        <Link className="button" to="/">Home</Link>
+                        <Link className="button" to="/add-picture">Add picture</Link>
                     </div>
 
                 </section>
@@ -17,14 +17,14 @@ const Header = () => {
                 <section className="navbar-rightL">
                     <div className="right-logged">
                         <Link to="/">Hello, Vanka</Link>
-                        <Link to="/">Logout</Link>
+                        <Link className="button" to="/">Logout</Link>
                     </div>
                 </section>
 
                 <section className="navbar-right">
                     <div className="annonymous">
-                        <Link to='/login'>Login</Link>
-                        <Link to='/register'>Register</Link>
+                        <Link className="button" to='/login'>Login</Link>
+                        <Link className="button" to='/register'>Register</Link>
                     </div>
                 </section>
             </nav>

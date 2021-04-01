@@ -1,0 +1,12 @@
+.wrapper {
+    display: flex;
+}
+
+.first {
+    flex-flow: column;
+    width: 500px;
+}
+
+.second {
+    flex: 1;
+}

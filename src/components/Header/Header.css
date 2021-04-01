@@ -2,7 +2,7 @@ nav.navbar {
   display: flex;
   justify-content: space-around;
   letter-spacing: 0.08rem;
-  background: #7e8286;
+  background: grey;
   padding: 0.8rem 2rem;
   color: white;
 }
@@ -15,6 +15,11 @@ nav.navbar {
   text-align: end;
   padding-right: 20px;
 }
+
+#site-header>.navbar>section.navbar-left {
+  flex-grow: 1;
+}
+
 
 #site-header>.navbar>section.navbar-rightL>div.right-logged>a {
   list-style: none;
@@ -54,3 +59,10 @@ nav.navbar {
 #site-header>.navbar>section.navbar-right>div.annonymous>a:nth-child(1) {
   padding-right: 20px;
 }
+
+.button:hover {
+      background: darkgray;
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      padding: 0
+    }
