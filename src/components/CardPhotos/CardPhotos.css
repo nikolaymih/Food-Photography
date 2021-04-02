@@ -1,18 +1,16 @@
 .CardPhotos {
-    flex: 2;
+    flex: 1;
 }
 
 .sectionWrapper {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    /* aspect-ratio: auto 720 / 960; */
 }
 
 .individualSectionWrapper {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+    /* padding: 20px 20px 0px 20px; */
+    margin-bottom: 30px;
     border-style: ridge;
 }
 

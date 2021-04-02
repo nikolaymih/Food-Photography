@@ -5,6 +5,7 @@ const CardPhotos = () => {
         <section className="CardPhotos">
             <div className="sectionWrapper">
                 <div className="individualSectionWrapper">
+                    <p>Cretor: Nikolay11</p>
                     <img className="actualImg" src="https://scontent.fsof8-1.fna.fbcdn.net/v/t1.6435-9/158900682_3954884447866796_2198572172287358462_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=730e14&_nc_ohc=URFAZ_aHA94AX9A8orU&_nc_ht=scontent.fsof8-1.fna&oh=a6df53d3f0e20315cb0de7c70e7efc42&oe=608C4719" alt="Nothing to display" />
                     <p className="descriptionImg">Description: Very beautiful people</p>
                     <h2 className="imgLikes">Likes: 20</h2>
