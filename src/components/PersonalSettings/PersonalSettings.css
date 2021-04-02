@@ -1,0 +1,10 @@
+.PersonalSettings {
+    flex-flow: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* height: 100%; */
+
+    /* flex-wrap: wrap-reverse; */
+}

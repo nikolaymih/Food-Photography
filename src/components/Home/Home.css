@@ -2,11 +2,6 @@
     display: flex;
 }
 
-.first {
-    flex-flow: column;
-    width: 500px;
-}
-
-.second {
+.emptySection {
     flex: 1;
 }

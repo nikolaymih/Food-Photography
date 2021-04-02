@@ -1,17 +1,20 @@
-import './Home.css'
+import PersonalSettings from '../PersonalSettings/PersonalSettings';
+import CardPhotos from '../CardPhotos/CardPhotos';
+
+import './Home.css';
 
 const Home = () => {
     return (
         <main className="wrapper">
-            <section className="first">
-                <h1>Hello world</h1>
-                <h1>Hello world</h1>
-            </section>
-            <section className="second">
+            <PersonalSettings />  
+
+            <CardPhotos />
+
+            <section className="emptySection">
                 <h1>Test</h1>
             </section>
         </main>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;
