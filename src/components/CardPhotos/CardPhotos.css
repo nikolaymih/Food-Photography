@@ -1,3 +1,32 @@
 .CardPhotos {
     flex: 2;
 }
+
+.sectionWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    /* aspect-ratio: auto 720 / 960; */
+}
+
+.individualSectionWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-style: ridge;
+}
+
+.actualImg {
+    text-align: center;
+    justify-content: center;
+    max-width: 100%;
+    height: auto
+}
+
+.descriptionImg {
+    text-align: center;
+}
+
+.imgLikes {
+    text-align: center;
+}
