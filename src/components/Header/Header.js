@@ -28,6 +28,7 @@ const Header = () => {
                     </div>
                 </section>
             </nav>
+                <div className="spacer"></div>
         </header>
     )
 }
