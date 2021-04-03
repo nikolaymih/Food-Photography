@@ -9,12 +9,12 @@
     width: 100%;
     /* Height of the footer*/
     height: 40px;
-    background: grey;
+    background: white;
 }
 
 footer p {
     padding: 1rem 0;
     font-weight: bold;
     margin: 0rem;
-    color: white;
+    color: black;
 }

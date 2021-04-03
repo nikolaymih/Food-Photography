@@ -5,7 +5,7 @@
 .sectionWrapper {
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    padding: 0px 10px 
 }
 
 .individualSectionWrapper {

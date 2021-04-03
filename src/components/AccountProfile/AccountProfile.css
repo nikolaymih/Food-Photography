@@ -1,0 +1,39 @@
+.wrappingAccountProfile {
+    display: flex;
+}
+
+.flexOrderPersonalSettingsAndAccountSettings {
+    flex: 2;
+    text-align: justify;
+}
+
+.fitImgWithAccountInfo {
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.resizeImg {
+    display: inline;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.fitImgWithAccountInfo button {
+    width: 60px;
+    height: 30px;
+}
+
+.setCertainPointsForNewLines {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 30px;
+}
+
+.break {
+    flex-basis: 100%;
+    height: 0;
+}
