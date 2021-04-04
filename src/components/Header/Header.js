@@ -8,8 +8,7 @@ const Header = () => {
             <nav className="navbar">
                 <section className="navbar-left">
                     <div className="left-logged">
-                        <Link className="button" to="/">Home</Link>
-                        <Link className="button" to="/add-picture">Add picture</Link>
+                        <Link className="button" to="/">lazygram</Link>
                     </div>
 
                 </section>
@@ -17,7 +16,6 @@ const Header = () => {
                 <section className="navbar-rightL">
                     <div className="right-logged">
                         <Link to="/">Hello, Vanka</Link>
-                        <Link className="button" to="/">Logout</Link>
                     </div>
                 </section>
 

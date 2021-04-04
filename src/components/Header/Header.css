@@ -1,6 +1,7 @@
 
 nav.navbar {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   margin-top: auto;
   letter-spacing: 0.08rem;
