@@ -21,8 +21,8 @@ const Header = () => {
 
                 <section className="navbar-right">
                     <div className="annonymous">
-                        <Link className="button" to='/login'>Login</Link>
-                        <Link className="button" to='/register'>Register</Link>
+                        <Link className="button" to='/auth/login'>Login</Link>
+                        <Link className="button" to='/auth/register'>Register</Link>
                     </div>
                 </section>
             </nav>
