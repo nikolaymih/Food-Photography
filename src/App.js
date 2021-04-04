@@ -20,6 +20,8 @@ function App() {
         <Route path="/account/profile" component={AccountProfile} exact />
         <Route path="/account/add-picture" component={AccountAddPicture} exact/>
         <Route path="/account/change-password" component={AccountChangePassword} />
+        <Route path="/contact" component={AccountChangePassword} />
+
       </Switch>
 
       <Footer />
