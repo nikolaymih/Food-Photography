@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
+import * as services from '../services/services';
 
 import './Register.css';
 
-const Register = () => {
+const Register = ({
+    history
+}) => {
 
     let { name, setName } = useState('');
 
@@ -10,7 +13,18 @@ const Register = () => {
         e.preventDefault();
 
         let {email, username, password, rePassword} = e.target;
-        console.log(email);
+
+        password = Number(password.value);
+        rePassword = Number(rePassword.value);
+
+        if(password != rePassword) {
+            return
+        }
+        
+        services.create(email.value, username.value, password)
+            .then((res) => {
+                history.push('/');
+            })
     }
 
     return (
