@@ -12,18 +12,27 @@ const Register = ({
     const onClickRegisterForm = (e) => {
         e.preventDefault();
 
-        let {email, username, password, rePassword} = e.target;
+        let { email, username, password, rePassword } = e.target;
 
         password = Number(password.value);
         rePassword = Number(rePassword.value);
 
-        if(password != rePassword) {
+        if (password != rePassword) {
             return
         }
-        
+
         services.create(email.value, username.value, password)
             .then((res) => {
+                if (res.ok != true) {
+                    throw ('The user is already registered')
+                }
+
                 history.push('/');
+            })
+            .catch((err) => {
+                console.log(err);
+                // console.log(err);
+                // console.log(status);
             })
     }
 
