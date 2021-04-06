@@ -27,7 +27,7 @@ const Register = ({
                     throw ('The user is already registered')
                 }
 
-                history.push('/');
+                history.push('/auth/login');
             })
             .catch((err) => {
                 console.log(err);

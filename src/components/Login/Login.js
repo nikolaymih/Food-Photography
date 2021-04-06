@@ -1,10 +1,21 @@
 import { Component } from 'react';
 
+import services from '../services/services';
+
 import './Login.css';
 
 class Login extends Component {
     constructor(props) {
         super(props)
+    }
+
+    onLoginSubmit(e) {
+        e.preventDefault()
+
+        let { email, password } = e.target
+
+        console.log(email.value);
+        console.log(password);
     }
 
     render() {
@@ -14,7 +25,7 @@ class Login extends Component {
                 <div className="authLoginForm">
                     <div className="formsMenu">
                         <section className="createPicture">
-                            <form >
+                            <form onSubmit={this.onLoginSubmit}>
                                 <fieldset className="orderFieldsetByColumn">
                                     <legend>lazygram</legend>
                                     <p className="formHeaderCreateImage">
