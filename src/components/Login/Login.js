@@ -17,7 +17,6 @@ class Login extends Component {
         services.login(email.value, password.value)
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('user', data.username);
                 localStorage.setItem('id', data._id);
@@ -41,7 +40,7 @@ class Login extends Component {
                                 <fieldset className="orderFieldsetByColumn">
                                     <legend>lazygram</legend>
                                     <p className="formHeaderCreateImage">
-                                        <h1>Please authenticate yourself</h1>
+                                        <h1>Please type your credentials</h1>
                                     </p>
                                     <p className="fieldCreatePet">
                                         <label htmlFor="email"><h4>Login</h4></label>

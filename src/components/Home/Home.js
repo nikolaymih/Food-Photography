@@ -11,7 +11,7 @@ const Home = () => {
             <CardPhotos />
 
             <section className="emptySection">
-                <h1>Test</h1>
+                
             </section>
         </main>
     );
