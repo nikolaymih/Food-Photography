@@ -1,28 +1,25 @@
 /* eslint-disable no-useless-constructor */
 import { Component } from 'react';
-import { Redirect } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 
-import * as utils from '../utils/isLoggedIn';
+import { isAuthenticated } from '../utils/isAuth';
 
 class ProtectedRoute extends Component {
     constructor(props) {
-        super(props);
+        super(props)
+
+        this.state = {
+            isAuth: true
+        }
     }
 
     render() {
-        const Component = this.props.component;
 
-        let token = '';
-        utils.isLoggedIn()
-            .then(res => token = res)
-
-
-        return token ? (
-            <Component />
-        ) : (
-            <Redirect to={{ pathname: '/auth/login' }} />
-        );
-
+        return (
+            <Route path={this.props.path} render={data => this.state.isAuth ? (
+                <this.props.component {...data}></this.props.component>) :
+                (<Redirect to={{ pathname: '/auth/login' }}></Redirect>)}></Route>
+        )
     }
 }
 

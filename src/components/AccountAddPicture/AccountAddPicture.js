@@ -1,15 +1,31 @@
 import PersonalSettings from '../PersonalSettings/PersonalSettings';
+import * as services from '../services/services';
 
 import './AccountAddPicture.css';
 
 const AccountAddPicture = () => {
+
+    const onSubmitAddPictureHandler = (e) => {
+        e.preventDefault()
+
+        const { image, description } = e.target
+
+        services.createImg(image.value, description.value)
+            .then(res => {
+                if(res.ok != 'ok') {
+                    throw Error(res)
+                }
+            })
+            .catch((err) => console.log(err))
+    }
+
     return (
         <div className="wrappingPersonalSettings">
             <PersonalSettings />
 
             <div className="formsMenu">
                 <section className="createPicture">
-                    <form >
+                    <form onSubmit={onSubmitAddPictureHandler}>
                         <fieldset className="orderFieldsetByColumn">
                             <legend>lazygram</legend>
                             <p className="formHeaderCreateImage">
@@ -30,7 +46,7 @@ const AccountAddPicture = () => {
                                     <span className="actions"></span>
                                 </span>
                             </p>
-                            <hr/>
+                            <hr />
                             <span className="createImgButton">
                                 <input className="button submit" type="submit" value="Add Pet" />
                             </span>

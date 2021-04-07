@@ -1,21 +1,22 @@
-export const isLoggedIn = async () => {
-    let url = 'http/localhost:5000/auth/isAuth';
+export const isLoggedIn = async (token) => {
+    let url = 'http://localhost:5000/auth/isAuth';
 
-    const token = localStorage.getItem('token');
-    
-    if (token) {
-        const result = await fetch(url, {
+        let storageToken = {
+            token
+        }
+
+        let result = await fetch(url, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer: ${token}`
             },
-            body: JSON.stringify(token)
+            body: JSON.stringify(storageToken) 
         })
-        
-        let data = await result.json()
 
-        console.log(data);
+        let data = await result.json();
 
-    } 
-        return token
+        // console.log(data.token);
+    
+        return data.token;
 }
