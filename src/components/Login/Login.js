@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-import services from '../services/services';
+import * as services from '../services/services';
 
 import './Login.css';
 
@@ -14,8 +14,20 @@ class Login extends Component {
 
         let { email, password } = e.target
 
-        console.log(email.value);
-        console.log(password);
+        services.login(email.value, password.value)
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('user', data.username);
+                localStorage.setItem('id', data._id);
+
+                email.value = '';
+                password.value = '';
+            })
+            .catch((err) => {
+                // console.log(err);
+            })
     }
 
     render() {
