@@ -2,7 +2,8 @@
 import { Component } from 'react';
 import { Route, Redirect } from 'react-router-dom'
 
-import { isAuthenticated } from '../utils/isAuth';
+// import { isAuthenticated } from '../utils/isAuth';
+import * as utils from '../utils/isLoggedIn';
 
 class ProtectedRoute extends Component {
     constructor(props) {
@@ -10,6 +11,18 @@ class ProtectedRoute extends Component {
 
         this.state = {
             isAuth: true
+        }
+    }
+
+    componentDidMount() {
+        let token = localStorage.getItem('token');
+
+        if (token) {
+            utils.isLoggedIn(token)
+                .then(res => {
+                    this.setState({ isAuth: res })
+                    console.log(res);
+                })
         }
     }
 

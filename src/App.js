@@ -24,6 +24,7 @@ function App() {
       <Header />
       
         <Switch>
+          
           <ProtectedRoute path="/" exact component={Home} />
           <ProtectedRoute path="/account/profile" component={AccountProfile} exact />
           <ProtectedRoute path="/account/add-picture" component={AccountAddPicture} exact />

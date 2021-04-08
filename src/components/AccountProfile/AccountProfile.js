@@ -1,8 +1,16 @@
 import PersonalSettings from '../PersonalSettings/PersonalSettings';
 
+import {useState, useEffect} from 'react';
+
 import './AccountProfile.css';
 
 const AccountProfile = () => {
+    let [username, setUsername] = useState('')
+
+    useEffect(() => {
+        setUsername(localStorage.getItem('user'));
+        console.log(username);      
+    }, [])
     return (
         <div className="wrappingAccountProfile">
             <PersonalSettings />

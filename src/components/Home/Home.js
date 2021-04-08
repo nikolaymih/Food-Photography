@@ -9,7 +9,7 @@ const Home = () => {
             <PersonalSettings />  
 
             <CardPhotos />
-
+                
             <section className="emptySection">
                 
             </section>

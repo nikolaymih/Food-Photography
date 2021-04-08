@@ -1,3 +1,5 @@
+
+
 export const create = (email, username, password) => {
     let url = 'http://localhost:5000/auth/register';
 
@@ -12,7 +14,7 @@ export const create = (email, username, password) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(user) 
+        body: JSON.stringify(user)
     })
 }
 
@@ -29,20 +31,20 @@ export const login = (email, password) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(user) 
+        body: JSON.stringify(user)
     })
 }
 
 export const createImg = (image, description) => {
     let url = 'http://localhost:5000/img/createImg';
 
-    let username = localStorage.getItem('user')
+    let id = localStorage.getItem('id')
     let token = localStorage.getItem('token')
 
     let imgData = {
         image,
         description,
-        username
+        id
     }
 
     return fetch(url, {
@@ -53,4 +55,25 @@ export const createImg = (image, description) => {
         },
         body: JSON.stringify(imgData)
     })
+}
+
+export const getFirstTen = () => {
+    let url = 'http://localhost:5000/img/'
+    let token = localStorage.getItem('token')
+
+
+    return fetch(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+    })
+        .then(res => {
+            return res.json()
+        })
+        .then((data) => {
+            return data
+        })
+        .catch(err => console.log(err))
 }

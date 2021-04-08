@@ -12,11 +12,17 @@ const AccountAddPicture = () => {
 
         services.createImg(image.value, description.value)
             .then(res => {
-                if(res.ok != 'ok') {
+                if(res.ok != true) {
                     throw Error(res)
                 }
+                
+                return res.json()
             })
+            .then((image) => console.log(image))
             .catch((err) => console.log(err))
+
+            image.value = '';
+            description.value = '';
     }
 
     return (
