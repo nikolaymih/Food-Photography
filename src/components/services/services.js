@@ -70,7 +70,7 @@ export const getFirstTen = () => {
         },
     })
         .then(res => {
-            if(res.ok != true) {
+            if (res.ok != true) {
                 throw Error('Access rejected')
             }
             return res.json()
@@ -126,4 +126,29 @@ export const getOneImage = (id) => {
         },
         body: JSON.stringify(idImage)
     })
+        .then((res) => res.json())
+        .then((data) => {
+            return data
+        })
+        .catch((err) => {
+            console.log(err)
+            return null
+        })
+}
+
+export const deleteOne = (id) => {
+    let url = `http://localhost:5000/img/delete/${id}`;
+
+    let token = localStorage.getItem('token')
+
+    fetch(url, {
+        method: 'Delete',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+    })
+        .then(res => res.json())
+        .then(res => console.log(res))
+        .catch((err) => console.log(err))
 }
