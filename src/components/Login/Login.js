@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 import * as services from '../services/services';
 
@@ -7,6 +8,11 @@ import './Login.css';
 class Login extends Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            refreshState: false,
+            history: this.props.history
+        }
     }
 
     onLoginSubmit(e) {
@@ -17,16 +23,24 @@ class Login extends Component {
         services.login(email.value, password.value)
             .then((res) => res.json())
             .then((data) => {
+
                 localStorage.setItem('token', data.token);
                 localStorage.setItem('user', data.username);
                 localStorage.setItem('id', data._id);
 
                 email.value = '';
                 password.value = '';
+
+                
+                this.setState({refreshState: true})
+                console.log(this.state.refreshState)
+                this.props.history.push('/');
+                
             })
             .catch((err) => {
                 // console.log(err);
             })
+            
     }
 
     render() {
@@ -36,7 +50,7 @@ class Login extends Component {
                 <div className="authLoginForm">
                     <div className="formsMenu">
                         <section className="createPicture">
-                            <form onSubmit={this.onLoginSubmit}>
+                            <form onSubmit={this.onLoginSubmit.bind(this)}>
                                 <fieldset className="orderFieldsetByColumn">
                                     <legend>lazygram</legend>
                                     <p className="formHeaderCreateImage">
@@ -72,4 +86,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);

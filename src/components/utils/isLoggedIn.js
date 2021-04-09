@@ -15,8 +15,6 @@ export const isLoggedIn = async (token) => {
         })
 
         let data = await result.json();
-
-        // console.log(data.token);
-    
+        
         return data.token;
 }

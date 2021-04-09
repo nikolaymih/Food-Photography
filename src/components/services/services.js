@@ -70,10 +70,60 @@ export const getFirstTen = () => {
         },
     })
         .then(res => {
+            if(res.ok != true) {
+                throw Error('Access rejected')
+            }
+            return res.json()
+        })
+        .then((data) => {
+            return data
+        })
+        .catch(() => {
+            return null
+        })
+}
+
+export const getOne = () => {
+    let url = 'http://localhost:5000/img/personalData';
+    let token = localStorage.getItem('token')
+
+    return fetch(url, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+    })
+        .then(res => {
             return res.json()
         })
         .then((data) => {
             return data
         })
         .catch(err => console.log(err))
+}
+
+export const logout = () => {
+    localStorage.removeItem('id');
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+}
+
+export const getOneImage = (id) => {
+    let url = 'http://localhost:5000/img/detailedImage';
+
+    let token = localStorage.getItem('token')
+
+    let idImage = {
+        id
+    }
+
+    return fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(idImage)
+    })
 }

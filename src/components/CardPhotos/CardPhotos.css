@@ -11,15 +11,19 @@
 .individualSectionWrapper {
     /* padding: 20px 20px 0px 20px; */
     margin-bottom: 30px;
-    border-style: ridge;
+    border-style: double;
     border-radius: 5px;
+    text-align: center;
 }
 
 .actualImg {
     text-align: center;
-    justify-content: center;
-    max-width: 100%;
-    height: auto
+    width: 400px;
+    height: 400px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding: 7px;
 }
 
 .descriptionImg {

@@ -9,14 +9,16 @@ import './CardPhotos.css'
 const CardPhotos = ({
 }) => {
     let [images, setImages] = useState([])
-    let [username, setUser] = useState([])
 
     useEffect(() => {
-        const username = localStorage.getItem('user');
 
         services.getFirstTen()
             .then(res => {
                 return setImages(res)
+            })
+            .catch(() => {
+                console.log('test')
+                return null
             })
     }, [])
 
@@ -25,7 +27,7 @@ const CardPhotos = ({
             <div className="sectionWrapper">
 
                 {images ? images.map(x =>
-                    <SinglePhoto key={x.id} {...x} />
+                    <SinglePhoto key={x.id} {...x}  />
                 ) : null}
 
             </div>

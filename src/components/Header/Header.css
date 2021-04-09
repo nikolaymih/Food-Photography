@@ -36,6 +36,7 @@ nav.navbar {
   font-size: 1.5rem;
   color: black;
   letter-spacing: 0.08rem;
+  padding-right: 40px;
 }
 
 #site-header>.navbar>section.navbar-right>div.annonymous>a {
@@ -45,7 +46,7 @@ nav.navbar {
   font-size: 1.5rem;
   color: black;
   letter-spacing: 0.08rem;
-  padding-right: 40px;
+  padding-right: 60px;
 }
 
 #site-header>.navbar>section.navbar-left>div.left-logged>a {
