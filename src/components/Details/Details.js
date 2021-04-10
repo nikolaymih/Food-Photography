@@ -1,6 +1,7 @@
 import PersonalSettings from '../PersonalSettings/PersonalSettings';
 
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { Link } from 'react-router-dom';
 
@@ -12,20 +13,26 @@ const Details = ({
     match
 }) => {
     let [image, setImage] = useState([]);
+    let [canDelete, setCanDelete] = useState('')
+    let history = useHistory()
 
     useEffect(() => {
         let imageId = match.params.id
 
         services.getOneImage(imageId)
             .then((imageData) => {
-                console.log(imageData)
-                return setImage(imageData)
+                setCanDelete(Boolean(imageData.userId))
+                setImage(imageData)
             })
             .catch((err) => console.log(err))
     }, [])
 
     const onDeletehandler = () => {
         services.deleteOne(image._id)
+            .then(() => {
+                history.push('/');
+                return null
+            })
     }
 
     return (
@@ -35,13 +42,19 @@ const Details = ({
 
             <section className="detailsMiddlePositioned">
                 <span>
-                    <p><h3>Creator: Coming soon</h3></p>
+                    <p><h3>{image.username}</h3></p>
                 </span>
                 <img className="detailsImg" src={image.image} alt="No pic for now" />
                 <p><h3>Description: {image.description}</h3></p>
                 <h3 >Likes: 20</h3>
-                <Link style={{ textDecoration: 'none' }}><h3 >Edit</h3></Link>
-                <Link style={{ textDecoration: 'none' }} onClick={onDeletehandler}><h3>Delete</h3></Link>
+
+                {canDelete
+                    ? <>
+                        <Link style={{ textDecoration: 'none' }}><h3 >Edit</h3></Link>
+                        <Link style={{ textDecoration: 'none' }} onClick={onDeletehandler}><h3>Delete</h3></Link>
+                    </>
+                    : null
+                }
             </section>
 
             <section className="detailsEmptySection" />

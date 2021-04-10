@@ -141,7 +141,7 @@ export const deleteOne = (id) => {
 
     let token = localStorage.getItem('token')
 
-    fetch(url, {
+    return fetch(url, {
         method: 'Delete',
         headers: {
             'Content-Type': 'application/json',
@@ -149,6 +149,6 @@ export const deleteOne = (id) => {
         },
     })
         .then(res => res.json())
-        .then(res => console.log(res))
+        .then(data => console.log(data))
         .catch((err) => console.log(err))
 }

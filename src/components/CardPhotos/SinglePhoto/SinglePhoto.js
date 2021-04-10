@@ -5,11 +5,12 @@ const SinglePhoto = ({
     _id,
     description,
     image,
+    username
 }) => {
     return (
         <div className="individualSectionWrapper">
             <span>
-                <p>Creator: Coming soon</p>
+                <p><h1>{username}</h1></p>
             </span>
             <Link to={`/image/details/${_id}`}><img className="actualImg" src={image} alt="No image" /></Link>
             <p className="descriptionImg">Description: {description}</p>

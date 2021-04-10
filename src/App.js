@@ -28,7 +28,6 @@ function App() {
   const history = useHistory()
 
   useEffect(() => {
-
     let token = localStorage.getItem('token');
     let username = localStorage.getItem('user');
 
@@ -38,6 +37,7 @@ function App() {
           if (res === false) {
             throw Error('Invalid Credentials')
           }
+          console.log('test')
           setUser(res)
           setUserEmail(username)
         })
@@ -75,7 +75,9 @@ function App() {
 
           <Route path="/contact" component={Contacts} />
 
-          <Route path="/auth/login" component={Login} exact />
+          <Route path="/auth/login" render={() => {
+            return <Login />
+          }} exact />
           <Route path="/auth/register" component={Register} />
           <Route path="/auth/logout" render={() => {
             services.logout()
