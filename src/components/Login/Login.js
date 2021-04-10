@@ -3,6 +3,8 @@ import { withRouter } from 'react-router-dom';
 
 import * as services from '../services/services';
 
+import InputError from '../shared/InputError';
+
 import './Login.css';
 
 class Login extends Component {
@@ -11,7 +13,8 @@ class Login extends Component {
 
         this.state = {
             refreshState: false,
-            history: this.props.history
+            history: this.props.history,
+            errorMessage: ''
         }
     }
 
@@ -19,6 +22,12 @@ class Login extends Component {
         e.preventDefault()
 
         let { email, password } = e.target
+        
+        if (password.value.length < 6) {
+            this.setState({ errorMessage: 'Password is shorter that 6 symbols' })
+            password = ''
+            return
+        }
 
         services.login(email.value, password.value)
             .then((res) => res.json())
@@ -31,16 +40,16 @@ class Login extends Component {
                 email.value = '';
                 password.value = '';
 
-                
-                this.setState({refreshState: true})
+                this.setState({ refreshState: true })
                 console.log(this.state.refreshState)
                 this.props.history.push('/');
-                
+
             })
             .catch((err) => {
-                // console.log(err);
+                this.setState({ errorMessage: 'Wrong username or password' })
+                return
             })
-            
+
     }
 
     render() {
@@ -56,8 +65,9 @@ class Login extends Component {
                                     <p className="formHeaderCreateImage">
                                         <h1>Please type your credentials</h1>
                                     </p>
+                                    <InputError>{this.state.errorMessage}</InputError>
                                     <p className="fieldCreatePet">
-                                        <label htmlFor="email"><h4>Login</h4></label>
+                                        <label htmlFor="email"><h4>Email</h4></label>
                                         <span className="inputChangePassword">
                                             <input type="email" name="email" id="email" placeholder="Type your email" />
                                             <span className="actions"></span>

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import * as services from '../services/services';
 
+import InputError from '../shared/InputError';
+
 import './Register.css';
 
 const Register = ({
@@ -8,6 +10,7 @@ const Register = ({
 }) => {
 
     let { name, setName } = useState('');
+    let [errorMessage, setErrorMessage] = useState('');
 
     const onClickRegisterForm = (e) => {
         e.preventDefault();
@@ -18,7 +21,22 @@ const Register = ({
         rePassword = Number(rePassword.value);
 
         if (password != rePassword) {
+            setErrorMessage('Passwords don\'t match')
+            password = ''
+            rePassword = ''
             return
+        }
+        
+        if (password.toString().length < 6) {
+            setErrorMessage('Password is shorter that 6 symbols')
+            password = ''
+            rePassword = ''
+            return
+        }
+        console.log(username.value.length)
+        if (username.value.length < 6) {
+            setErrorMessage('Username is shorter that 6 symbols')
+            return 
         }
 
         services.create(email.value, username.value, password)
@@ -30,9 +48,7 @@ const Register = ({
                 history.push('/auth/login');
             })
             .catch((err) => {
-                console.log(err);
-                // console.log(err);
-                // console.log(status);
+                setErrorMessage(err)
             })
     }
 
@@ -48,9 +64,9 @@ const Register = ({
                                 <p className="formHeaderCreateImage">
                                     <h2>Please register your new account</h2>
                                 </p>
-
+                                <InputError>{errorMessage}</InputError>
                                 <p className="fieldCreatePet">
-                                    <label htmlFor="email">Login</label>
+                                    <label htmlFor="email">Email</label>
                                     <span className="inputChangePassword">
                                         <input type="email" name="email" id="email" placeholder="Type your email" />
                                         <span className="actions"></span>
@@ -83,7 +99,7 @@ const Register = ({
 
                                 <hr />
                                 <span className="createImgButton">
-                                    <input className="button submit" type="submit" value="Login" />
+                                    <input className="button submit" type="submit" value="Register" />
                                 </span>
                             </fieldset>
                         </form>
