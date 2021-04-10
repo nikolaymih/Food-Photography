@@ -165,3 +165,29 @@ export const updateOne = (updateImage, id) => {
         body: JSON.stringify(updateImage)
     })
 }
+
+export const loadTenMoreImages = (seenIds) => {
+    let url = 'http://localhost:5000/img/loadResources'
+    let token = localStorage.getItem('token')
+    
+    return fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({seenIds})
+    })
+        .then(res => {
+            if (res.ok != true) {
+                throw Error('Access rejected')
+            }
+            return res.json()
+        })
+        .then((data) => {
+            return data
+        })
+        .catch(() => {
+            return null
+        })
+}

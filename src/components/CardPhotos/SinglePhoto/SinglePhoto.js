@@ -13,7 +13,7 @@ const SinglePhoto = ({
                 <p><h1>{username}</h1></p>
             </span>
             <Link to={`/image/details/${_id}`}><img className="actualImg" src={image} alt="No image" /></Link>
-            <p className="descriptionImg">Description: {description}</p>
+            <p className="descriptionImg"><h1>Description: {description}</h1></p>
             <h2 className="imgLikes">Likes: 20</h2>
         </div>
     )
