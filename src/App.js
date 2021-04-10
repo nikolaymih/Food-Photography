@@ -68,7 +68,11 @@ function App() {
 
         <Switch>
 
-          <Route path="/" exact component={Home} />
+          <Route path="/" exact render={() => {
+            setUser(true)
+            setUserEmail(localStorage.getItem('user'))
+            return <Home />} }
+             />
           <Route path="/account/profile" component={AccountProfile} exact />
           <Route path="/account/add-picture" component={AccountAddPicture} exact />
           <Route path="/account/change-password" component={AccountChangePassword} />
