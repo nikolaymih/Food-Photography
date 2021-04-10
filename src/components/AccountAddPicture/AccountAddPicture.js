@@ -68,7 +68,7 @@ const AccountAddPicture = ({history}) => {
                             </p>
                             <hr />
                             <span className="createImgButton">
-                                <input className="button submit" type="submit" value="Add Pet" />
+                                <input className="button submit" type="submit" value="Add Image" />
                             </span>
                         </fieldset>
                     </form>
