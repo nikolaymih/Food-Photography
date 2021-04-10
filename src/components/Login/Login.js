@@ -18,12 +18,6 @@ class Login extends Component {
         }
     }
 
-    componentDidMount() {
-        if(Math.random > 0.7) {
-            throw new Error('Something went wrong');
-        }
-    }
-
     onLoginSubmit(e) {
         e.preventDefault()
 
