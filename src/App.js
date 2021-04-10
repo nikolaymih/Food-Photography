@@ -17,8 +17,10 @@ import Footer from './components/Footer/Footer';
 
 import NotFound from './components/NotFound/NotFound';
 
-import * as services from './components/services/services';
 import AuthContext from './contexts/AuthContext'
+import CustomErrorBoundary from './components/CustomErrorBoundary/CustomErrorBoundary';
+
+import * as services from './components/services/services';
 import * as utils from './components/utils/isLoggedIn'
 
 import './App.css';
@@ -66,10 +68,10 @@ function App() {
     <div>
 
       <AuthContext.Provider value={userInfo}>
+        <CustomErrorBoundary>
         <Header />
 
         <Switch>
-
           <Route path="/" exact render={() => {
             setUser(true)
             setUserEmail(localStorage.getItem('user'))
@@ -100,6 +102,7 @@ function App() {
         </Switch>
 
         {/* <Footer /> */}
+        </CustomErrorBoundary>
       </AuthContext.Provider>
 
     </div>
