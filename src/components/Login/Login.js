@@ -47,6 +47,8 @@ class Login extends Component {
             })
             .catch((err) => {
                 this.setState({ errorMessage: 'Wrong username or password' })
+                email.value = '';
+                password.value = '';
                 return
             })
 
@@ -61,7 +63,7 @@ class Login extends Component {
                         <section className="createPicture">
                             <form onSubmit={this.onLoginSubmit.bind(this)}>
                                 <fieldset className="orderFieldsetByColumn">
-                                    <legend>lazygram</legend>
+                                    <legend>photogram</legend>
                                     <p className="formHeaderCreateImage">
                                         <h1>Please type your credentials</h1>
                                     </p>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import PersonalSettings from '../PersonalSettings/PersonalSettings';
 import * as services from '../services/services';
@@ -40,7 +41,7 @@ const AccountProfile = () => {
                     <div>
                         {
                             image.map((x) => {
-                                return <img className="singleCollectionImg" key={x._id} src={x.image} alt="Nothing to display" />
+                                return <Link to={`/image/details/${x._id}`}><img className="singleCollectionImg" key={x._id} src={x.image} alt="Nothing to display" /></Link>
                             })
                         }
                     </div>

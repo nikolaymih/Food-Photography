@@ -1,28 +1,41 @@
+import { useState, useEffect } from 'react';
+
 import PersonalSettings from '../PersonalSettings/PersonalSettings';
+import InputError from '../shared/InputError';
+
 import * as services from '../services/services';
+
 
 import './AccountAddPicture.css';
 
-const AccountAddPicture = () => {
+const AccountAddPicture = ({history}) => {
+    let [messageError, setMessageError] = useState('');
 
     const onSubmitAddPictureHandler = (e) => {
         e.preventDefault()
 
         const { image, description } = e.target
 
-        services.createImg(image.value, description.value)
-            .then(res => {
-                if(res.ok != true) {
-                    throw Error(res)
-                }
-                
-                return res.json()
-            })
-            .then((image) => console.log(image))
-            .catch((err) => console.log(err))
-
+        if (image.value.length == 0 || description.value.length == 0) {
+            setMessageError('Fields can\'t be empty ')
             image.value = '';
             description.value = '';
+            return null
+        }
+
+        services.createImg(image.value, description.value)
+            .then(res => {
+                if (res.ok != true) {
+                    throw Error(res)
+                }
+
+                return res.json()
+            })
+            .then((image) => history.push('/'))
+            .catch((err) => console.log(err))
+
+        image.value = '';
+        description.value = '';
     }
 
     return (
@@ -33,10 +46,11 @@ const AccountAddPicture = () => {
                 <section className="createPicture">
                     <form onSubmit={onSubmitAddPictureHandler}>
                         <fieldset className="orderFieldsetByColumn">
-                            <legend>lazygram</legend>
+                            <legend>photogram</legend>
                             <p className="formHeaderCreateImage">
                                 <h1>Add a new Picture</h1>
                             </p>
+                            <InputError>{messageError}</InputError>
                             <p className="fieldCreatePet">
                                 <label htmlFor="image">Image</label>
                                 <span className="inputCreatePet">

@@ -20,7 +20,7 @@ const Header = () => {
                     <div className="left-logged">
 
                         {isAuthenticated
-                            ? <Link className="button" to="/">lazygram</Link>
+                            ? <Link className="button" to="/">photogram</Link>
                             : null
                         }
 
@@ -31,7 +31,7 @@ const Header = () => {
                 <section className="navbar-rightL">
                     <div className="right-logged">
                         {isAuthenticated
-                            ? <Link to="/">Hello, {username}</Link>
+                            ? <Link to="/account/profile">Hello, {username}</Link>
                             : null
                         }
                     </div>

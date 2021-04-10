@@ -60,7 +60,7 @@ const Register = ({
                     <section className="createPicture">
                         <form onSubmit={onClickRegisterForm}>
                             <fieldset className="orderFieldsetByColumn">
-                                <legend>lazygram</legend>
+                                <legend>photogram</legend>
                                 <p className="formHeaderCreateImage">
                                     <h2>Please register your new account</h2>
                                 </p>

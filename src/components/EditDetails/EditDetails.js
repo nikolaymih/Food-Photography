@@ -1,4 +1,6 @@
 import PersonalSettings from '../PersonalSettings/PersonalSettings';
+import InputError from '../shared/InputError';
+
 import * as services from '../services/services';
 
 import { useState, useEffect } from 'react';
@@ -10,6 +12,7 @@ const EditDetails = ({
     match
 }) => {
     let [prevInfo, setPrevInfo] = useState([]);
+    let [messageError, setMessageError] = useState('')
     const history = useHistory();
 
     useEffect(() => {
@@ -26,6 +29,11 @@ const EditDetails = ({
         e.preventDefault()
 
         let {image, description} = e.target;
+
+        if (image.value.length == 0 || description.value.length == 0) {
+            setMessageError('Fields can\'t be empty ')
+            return null
+        }
 
         let updateImage = {
             image: image.value,
@@ -45,10 +53,11 @@ const EditDetails = ({
                 <section className="createPicture">
                     <form onSubmit={onSubmitEditPictureHandler}>
                         <fieldset className="orderFieldsetByColumn">
-                            <legend>lazygram</legend>
+                            <legend>photogram</legend>
                             <p className="formHeaderCreateImage">
                                 <h1>Edit a picture</h1>
                             </p>
+                            <InputError>{messageError}</InputError>
                             <p className="fieldCreatePet">
                                 <label htmlFor="image">Image</label>
                                 <span className="inputCreatePet">
