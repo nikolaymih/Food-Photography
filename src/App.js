@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Details from './components/Details/Details';
+import EditDetails from './components/EditDetails/EditDetails';
 import AccountProfile from './components/AccountProfile/AccountProfile';
 import AccountAddPicture from './components/AccountAddPicture/AccountAddPicture';
 import AccountChangePassword from './components/AccountChangePassword/AccountChangePassword'
@@ -37,7 +38,6 @@ function App() {
           if (res === false) {
             throw Error('Invalid Credentials')
           }
-          console.log('test')
           setUser(res)
           setUserEmail(username)
         })
@@ -88,7 +88,7 @@ function App() {
           }} />
 
           <Route path="/image/details/:id" component={Details} />
-
+          <Route path="/image/edit/:id" component={EditDetails} />
 
           <Route path="*" component={NotFound} />
         </Switch>

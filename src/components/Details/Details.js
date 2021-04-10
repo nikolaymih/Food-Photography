@@ -50,7 +50,7 @@ const Details = ({
 
                 {canDelete
                     ? <>
-                        <Link style={{ textDecoration: 'none' }}><h3 >Edit</h3></Link>
+                        <Link to={`/image/edit/${image._id}`} style={{ textDecoration: 'none' }}><h3 >Edit</h3></Link>
                         <Link style={{ textDecoration: 'none' }} onClick={onDeletehandler}><h3>Delete</h3></Link>
                     </>
                     : null

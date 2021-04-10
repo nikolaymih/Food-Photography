@@ -152,3 +152,16 @@ export const deleteOne = (id) => {
         .then(data => console.log(data))
         .catch((err) => console.log(err))
 }
+
+export const updateOne = (updateImage, id) => {
+    let token = localStorage.getItem('token')
+
+    return fetch(`http://localhost:5000/img/update/${id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(updateImage)
+    })
+}
