@@ -55,7 +55,7 @@ const EditDetails = ({
                         <fieldset className="orderFieldsetByColumn">
                             <legend>photogram</legend>
                             <p className="formHeaderCreateImage">
-                                <h1>Edit a picture</h1>
+                                <h1>Edit the picture</h1>
                             </p>
                             <InputError>{messageError}</InputError>
                             <p className="fieldCreatePet">
@@ -75,7 +75,7 @@ const EditDetails = ({
                             </p>
                             <hr />
                             <span className="createImgButton">
-                                <input className="button submit" type="submit" value="Add Image" />
+                                <input className="button submit" type="submit" value="Edit the picture" />
                             </span>
                         </fieldset>
                     </form>

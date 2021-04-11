@@ -42,7 +42,7 @@ const Register = ({
         services.create(email.value, username.value, password)
             .then((res) => {
                 if (res.ok != true) {
-                    throw ('The user is already registered')
+                    throw ('The user or email is already registered')
                 }
 
                 history.push('/auth/login');
