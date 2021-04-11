@@ -42,7 +42,7 @@ const AccountProfile = () => {
                         {
                             image.map((x) => {
                                 return <Link to={`/image/details/${x._id}`}><img className="singleCollectionImg" key={x._id} src={x.image} alt="Nothing to display" /></Link>
-                            })
+                            }).reverse()
                         }
                     </div>
                 </div>

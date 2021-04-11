@@ -18,6 +18,14 @@ class Login extends Component {
         }
     }
 
+    componentDidMount() {
+        let user = localStorage.getItem('user')
+
+        if(user) {
+            this.props.history.push('/')
+        }
+    }
+
     onLoginSubmit(e) {
         e.preventDefault()
 

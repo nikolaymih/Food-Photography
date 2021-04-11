@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect} from 'react';
 import * as services from '../services/services';
 
 import InputError from '../shared/InputError';
@@ -11,6 +11,14 @@ const Register = ({
 
     let { name, setName } = useState('');
     let [errorMessage, setErrorMessage] = useState('');
+
+    useEffect(() => {
+        let user = localStorage.getItem('user')
+
+        if(user) {
+            history.push('/')
+        }
+    })
 
     const onClickRegisterForm = (e) => {
         e.preventDefault();
