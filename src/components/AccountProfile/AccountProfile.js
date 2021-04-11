@@ -18,8 +18,6 @@ const AccountProfile = () => {
             .then((images) => {
                 setImage(images)
                 setPostsNum(images.length);
-
-                console.log(image)
             })
     }, [])
     return (

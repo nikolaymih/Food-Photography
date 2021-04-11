@@ -49,7 +49,7 @@ class Login extends Component {
                 password.value = '';
 
                 this.setState({ refreshState: true })
-                console.log(this.state.refreshState)
+                
                 this.props.history.push('/');
 
             })

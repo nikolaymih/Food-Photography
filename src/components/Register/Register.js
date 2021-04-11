@@ -41,7 +41,7 @@ const Register = ({
             rePassword = ''
             return
         }
-        console.log(username.value.length)
+
         if (username.value.length < 6) {
             setErrorMessage('Username is shorter that 6 symbols')
             return 

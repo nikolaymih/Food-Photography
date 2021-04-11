@@ -32,7 +32,6 @@ function App() {
 
   useEffect(() => {
 
-    console.log('Vseki put pri smqna se renderira')
     let token = localStorage.getItem('token');
     let username = localStorage.getItem('user');
 

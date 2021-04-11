@@ -18,7 +18,6 @@ const CardPhotos = ({
 
         services.getFirstTen()
             .then(res => {
-                console.log(res)
                 return setImages(res)
             })
             .catch(() => {
