@@ -25,7 +25,7 @@ const Details = ({
                 setImage(imageData)
             })
             .catch((err) => console.log(err))
-    }, [])
+    }, [match.params.id])
 
     const onDeletehandler = () => {
         services.deleteOne(image._id)
